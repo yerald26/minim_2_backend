@@ -1,4 +1,5 @@
 package Manager;
+import Model.InscripcionRequest;
 import Model.User;
 import Model.Item;
 
@@ -24,4 +25,7 @@ public interface JuegoManager {
 
     List<Item> obtenerItemsTienda();
 
+    java.util.List<Model.Evento> obtenerListaEventos();
+
+    boolean registrarInscripcion(InscripcionRequest request);
 }

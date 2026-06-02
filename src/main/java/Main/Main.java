@@ -14,7 +14,7 @@ import io.swagger.jersey.listing.ApiListingResourceJSON;
 
 public class Main {
     // La URI base donde escuchará la API
-    public static final String BASE_URI = "https://0.0.0.0:8080/api/"; //"http://192.168.10.133:8080/api/";
+    public static final String BASE_URI = "https://localhost:8080/api/"; //"http://192.168.10.133:8080/api/"; // para el servidor d DSA es "https://0.0.0.0:8080/api/"
 
     public static void main(String[] args) throws Exception {
 

@@ -1,5 +1,6 @@
 package Service;
 
+import Model.InscripcionRequest;
 import Model.Item;
 import Model.User;
 import Manager.JuegoManagerImpl;
@@ -155,5 +156,28 @@ public class Sistema_Juego {
     public Response obtenerUsuarios() {
         List<User> usuarios = manager.obtenerUsuarios();
         return Response.status(200).entity(usuarios).build();
+    }
+    @GET
+    @Path("/eventos")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getEventos(){
+        System.out.println("\n[SERVER] -> Petición GET recibida en /juego/eventos");
+        System.out.println("[SERVER] -> Enviando lista de eventos ficticios a Android...");
+
+        java.util.List<Model.Evento> eventos = manager.obtenerListaEventos();
+        return Response.status(200).entity(eventos).build();
+    }
+
+    @POST
+    @Path("/eventos/inscripcion")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response inscribirUsuario(InscripcionRequest request){
+        System.out.println("\n[SERVER] -> Petición POST recibida en /juego/eventos/inscripcion");
+        System.out.println("[SERVER] -> Datos recibidos -> Usuario: " + request.getUsername() + " | ID Evento: " + request.getIdEvento());
+
+        System.out.println("[SERVER] -> Inscripción procesada con éxito (Simulada).");
+
+        return Response.status(201).build();
     }
 }
