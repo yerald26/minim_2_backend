@@ -167,7 +167,7 @@ public class Sistema_Juego {
 
         GenericEntity<List<Model.Evento>> entity = new GenericEntity<List<Model.Evento>>(eventos) {};
 
-        return Response.status(200).entity(eventos).build();
+        return Response.status(200).entity(entity).build();
     }
 
     @POST
