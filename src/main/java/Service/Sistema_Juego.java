@@ -161,10 +161,12 @@ public class Sistema_Juego {
     @Path("/eventos")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getEventos(){
-        System.out.println("\n[SERVER] -> Petición GET recibida en /juego/eventos");
-        System.out.println("[SERVER] -> Enviando lista de eventos ficticios a Android...");
 
-        java.util.List<Model.Evento> eventos = manager.obtenerListaEventos();
+        log.info("Petición de eventos recibida");
+        List<Model.Evento> eventos = manager.obtenerListaEventos();
+
+        GenericEntity<List<Model.Evento>> entity = new GenericEntity<List<Model.Evento>>(eventos) {};
+
         return Response.status(200).entity(eventos).build();
     }
 
